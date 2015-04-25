@@ -47,8 +47,7 @@ for ($i = 0; $i < $suresayisi; $i ++) {
         }
     }
     $sureAdi = substr($veri_derece_2[2][$i], 3);
-    $sureAdi = str_replace(" ", "", $sureAdi);
-    $sureAdi = str_replace(".", "", $sureAdi);
+    $sureAdi = trim($sureAdi);
     $DB->exec("INSERT INTO sureler VALUES (null, '" . $sureAdi . "')");
 }
 
