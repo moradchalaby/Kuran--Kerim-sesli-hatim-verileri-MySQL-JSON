@@ -33,7 +33,7 @@ preg_match_all('/<option value="(.*?)">(.*?)<\/option>/is', $veri_derece_1[1][0]
 $suresayisi = count($veri_derece_2[0]);
 
 $data = array();
-for ($i = 0; $i < $suresayisi; $i ++) {
+for ($i = 1; $i < $suresayisi+1; $i ++) {
     
     $buSureninAyetleriVar = true;
     for ($x = 1; $buSureninAyetleriVar == true; $x ++) {
