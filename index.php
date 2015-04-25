@@ -33,7 +33,7 @@ preg_match_all('/<option value="(.*?)">(.*?)<\/option>/is', $veri_derece_1[1][0]
 $suresayisi = count($veri_derece_2[0]);
 
 $data = array();
-for ($i = 0; $i < $suresayisi + 1; $i ++) {
+for ($i = 0; $i < $suresayisi; $i ++) {
     
     $buSureninAyetleriVar = true;
     for ($x = 1; $buSureninAyetleriVar == true; $x ++) {
@@ -46,8 +46,10 @@ for ($i = 0; $i < $suresayisi + 1; $i ++) {
             $buSureninAyetleriVar = false;
         }
     }
-    
-    $DB->exec("INSERT INTO sureler VALUES (null, '" . substr($veri_derece_2[2][$i], 3) . "')");
+    $sureAdi = substr($veri_derece_2[2][$i], 3);
+    $sureAdi = str_replace(" ", "", $sureAdi);
+    $sureAdi = str_replace(".", "", $sureAdi);
+    $DB->exec("INSERT INTO sureler VALUES (null, '" . $sureAdi . "')");
 }
 
 ?>
