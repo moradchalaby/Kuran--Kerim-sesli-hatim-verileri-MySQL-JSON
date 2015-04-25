@@ -38,7 +38,8 @@ for ($i = 0; $i < $suresayisi + 1; $i ++) {
     $buSureninAyetleriVar = true;
     for ($x = 1; $buSureninAyetleriVar == true; $x ++) {
         $ses = "http://webdosya.diyanet.gov.tr/kuran/Sound/ar_davutkaya/" . $i . "_" . $x . ".ogg";
-        if (file_get_contents($ses)) {
+        $dosyaVarMi = get_headers($ses);
+        if ($dosyaVarMi['0'] == 'HTTP/1.1 200 OK' ) {
             
             $DB->exec("INSERT INTO ayetler VALUES (null, '$i', '$ses')");
         } else {
